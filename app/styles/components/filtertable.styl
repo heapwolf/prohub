@@ -1,0 +1,38 @@
+ul.repos
+
+  li
+    position relative
+    cursor pointer
+    float none
+    
+    .repo
+      padding 10px
+      display block
+      text-decoration none
+      border-bottom 1px solid #ccc
+
+      &.selected
+        b, i
+          color $blue
+
+      &:hover
+        border-radius 2px
+        background #ddd
+
+      p
+        font-size 12px
+        margin 0
+
+    &:hover
+      i
+        opacity 1
+        visibility visible
+
+    i
+      transition: all .1s ease-in
+      visibility hidden
+      opacity 0
+      position absolute
+      top 8px
+      right 8px
+

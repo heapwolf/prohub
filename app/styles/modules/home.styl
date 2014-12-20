@@ -1,0 +1,42 @@
+section.home
+  font-family $font-Carrois
+  width 80%
+  margin auto
+
+  h1, h3
+    font-family $font-Roboto
+
+  .unauthorized
+    display none
+    text-align center
+    height: 200px
+
+  header
+    margin 20px 0
+    height 100px
+    position relative
+
+    .button-group
+      position absolute
+      right 0
+      top 0
+
+      input[type="button"]
+        margin 8px
+        float right
+
+  ul.projects-list li
+    height 40px
+
+    a
+      color #666
+      text-decoration none
+      border-radius 2px
+      padding 8px
+      font-size 18px
+      width 100%
+      display block
+
+      &:hover
+        background $space-gray-lighter
+

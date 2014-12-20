@@ -1,0 +1,9 @@
+/node_modules
+/app/assets/dist
+*.sw*
+npm-debug.log
+app/assets/css/bundle.css
+app/assets/js/bundle.js
+/db
+.prohubrc
+
