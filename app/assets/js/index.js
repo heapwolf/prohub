@@ -57,10 +57,13 @@ module.exports = function Linestream(stream) {
 
 },{"split":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/split/index.js","through-parse":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/through-parse/index.js"}],"/Users/paolofragomeni/workroot/git/hij1nx/project-view/app/node_modules/filtertable/index.js":[function(require,module,exports){
 var dom = require('dom-events');
+var insertcss = require('insert-css');
 var template = require('./templates/index.jade');
 var forEach = Array.prototype.forEach;
 
 module.exports = function(locals, cb) {
+
+  insertcss(require('./styles/index.styl'));
 
   var repoUL = document.querySelector('ul.repos');
   repoUL.innerHTML = template({ data: locals });
@@ -72,7 +75,10 @@ module.exports = function(locals, cb) {
 };
 
 
-},{"./templates/index.jade":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/app/node_modules/filtertable/templates/index.jade","dom-events":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/dom-events/index.js"}],"/Users/paolofragomeni/workroot/git/hij1nx/project-view/app/node_modules/filtertable/templates/index.jade":[function(require,module,exports){
+},{"./styles/index.styl":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/app/node_modules/filtertable/styles/index.styl","./templates/index.jade":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/app/node_modules/filtertable/templates/index.jade","dom-events":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/dom-events/index.js","insert-css":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/insert-css/index.js"}],"/Users/paolofragomeni/workroot/git/hij1nx/project-view/app/node_modules/filtertable/styles/index.styl":[function(require,module,exports){
+module.exports = "ul.repos li{position:relative;cursor:pointer;float:none;}ul.repos li .repo{padding:10px;display:block;text-decoration:none;border-bottom:1px solid #ccc;}ul.repos li .repo.selected b,ul.repos li .repo.selected i{color:$blue}ul.repos li .repo:hover{border-radius:2px;background:#ddd}ul.repos li .repo p{font-size:12px;margin:0}ul.repos li:hover i{opacity:1;visibility:visible}ul.repos li i{transition:all .1s ease-in;visibility:hidden;opacity:0;position:absolute;top:8px;right:8px}"
+
+},{}],"/Users/paolofragomeni/workroot/git/hij1nx/project-view/app/node_modules/filtertable/templates/index.jade":[function(require,module,exports){
 var jade = require("jade/runtime");
 
 module.exports = function template(locals) {
@@ -106,9 +112,12 @@ buf.push("<li><div" + (jade.attr("id", url, true, false)) + " class=\"repo\"><b>
 },{"jade/runtime":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/jade/runtime.js"}],"/Users/paolofragomeni/workroot/git/hij1nx/project-view/app/node_modules/home/client.js":[function(require,module,exports){
 var dom = require('dom-events');
 var classList = require('class-list');
+var insertcss = require('insert-css');
 var q = require('hyperquest');
 
 module.exports = function(stream) {
+
+  insertcss(require('./styles/index.styl'));
 
   var debounce;
 
@@ -163,7 +172,10 @@ module.exports = function(stream) {
 };
 
 
-},{"class-list":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/class-list/index.js","dom-events":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/dom-events/index.js","hyperquest":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/hyperquest/index.js"}],"/Users/paolofragomeni/workroot/git/hij1nx/project-view/app/node_modules/project/charts.js":[function(require,module,exports){
+},{"./styles/index.styl":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/app/node_modules/home/styles/index.styl","class-list":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/class-list/index.js","dom-events":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/dom-events/index.js","hyperquest":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/hyperquest/index.js","insert-css":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/insert-css/index.js"}],"/Users/paolofragomeni/workroot/git/hij1nx/project-view/app/node_modules/home/styles/index.styl":[function(require,module,exports){
+module.exports = "section.home{font-family:\"Carrois Gothic SC\",sans-serif;width:80%;margin:auto;}section.home h1,section.home h3{font-family:\"Roboto Slab\",serif}section.home .unauthorized{display:none;text-align:center;height:200px}section.home header{margin:20px 0;height:100px;position:relative;}section.home header .button-group{position:absolute;right:0;top:0;}section.home header .button-group input[type=\"button\"]{margin:8px;float:right}section.home ul.projects-list li{height:40px;}section.home ul.projects-list li a{color:#666;text-decoration:none;border-radius:2px;padding:8px;font-size:18px;width:100%;display:block;}section.home ul.projects-list li a:hover{background:#e0e5ea}"
+
+},{}],"/Users/paolofragomeni/workroot/git/hij1nx/project-view/app/node_modules/project/charts.js":[function(require,module,exports){
 var c3 = require('c3');
 var dom = require('dom-events');
 var moment = require('moment');
@@ -444,6 +456,7 @@ exports.contributions = function(data, filters) {
 var paramify = require('paramify');
 var dom = require('dom-events');
 var classList = require('class-list');
+var insertcss = require('insert-css');
 var charts = require('./charts');
 var loader = require('./loader');
 var summarybar = require('summarybar');
@@ -452,6 +465,7 @@ var forEach = Array.prototype.forEach;
 
 module.exports = function(stream) {
 
+  insertcss(require('./styles/index.styl'));
 
   var debounce;
   var firstload;
@@ -620,7 +634,7 @@ module.exports = function(stream) {
 };
 
 
-},{"./charts":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/app/node_modules/project/charts.js","./loader":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/app/node_modules/project/loader.js","class-list":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/class-list/index.js","dom-events":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/dom-events/index.js","filtertable":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/app/node_modules/filtertable/index.js","paramify":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/paramify/index.js","summarybar":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/app/node_modules/summarybar/client.js"}],"/Users/paolofragomeni/workroot/git/hij1nx/project-view/app/node_modules/project/loader.js":[function(require,module,exports){
+},{"./charts":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/app/node_modules/project/charts.js","./loader":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/app/node_modules/project/loader.js","./styles/index.styl":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/app/node_modules/project/styles/index.styl","class-list":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/class-list/index.js","dom-events":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/dom-events/index.js","filtertable":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/app/node_modules/filtertable/index.js","insert-css":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/insert-css/index.js","paramify":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/paramify/index.js","summarybar":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/app/node_modules/summarybar/client.js"}],"/Users/paolofragomeni/workroot/git/hij1nx/project-view/app/node_modules/project/loader.js":[function(require,module,exports){
 var classList = require('class-list');
 
 module.exports = function(root) {
@@ -648,7 +662,10 @@ module.exports = function(root) {
 }; 
 
 
-},{"class-list":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/class-list/index.js"}],"/Users/paolofragomeni/workroot/git/hij1nx/project-view/app/node_modules/project/templates/contributors.jade":[function(require,module,exports){
+},{"class-list":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/class-list/index.js"}],"/Users/paolofragomeni/workroot/git/hij1nx/project-view/app/node_modules/project/styles/index.styl":[function(require,module,exports){
+module.exports = "section.project{font-family:\"Carrois Gothic SC\",sans-serif;}section.project .chart{margin:20px 0 40px 0}section.project header{margin:0 10px 0 20px;position:relative}section.project .button-group{position:absolute;right:15px;top:185px;}section.project .button-group input[type=\"button\"]{margin:0 10px 0 0;float:right}section.project h1,section.project h1 a{margin:25px 0;font-family:\"Roboto Slab\",serif}section.project h1 a,section.project h1 a:hover{text-decoration:none;color:#2e7af9;padding:18px}section.project .donut{height:450px;}section.project .donut svg{width:100%;height:100%}section.project .donut polyline{opacity:.3;stroke:#000;stroke-width:2px;fill:none}section.project .contributors{text-align:center;display:flex;flex-flow:row wrap;align-content:flex-end;align-items:center;width:100%;}section.project .contributors .contributor{margin:20px;width:15%;}section.project .contributors .contributor img{margin:10px;width:50px;height:50px;border-radius:2px}section.project .contributors .contributor a{color:#666}.c3 path{stroke:#aaa}.c3-chart-arcs-title{fill:#666;font-size:36px;dominant-baseline:middle;font-weight:600}"
+
+},{}],"/Users/paolofragomeni/workroot/git/hij1nx/project-view/app/node_modules/project/templates/contributors.jade":[function(require,module,exports){
 var jade = require("jade/runtime");
 
 module.exports = function template(locals) {
@@ -681,8 +698,11 @@ buf.push("<div class=\"contributor\"><img" + (jade.attr("src", item.avatar_url, 
 };
 },{"jade/runtime":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/jade/runtime.js"}],"/Users/paolofragomeni/workroot/git/hij1nx/project-view/app/node_modules/summarybar/client.js":[function(require,module,exports){
 var template = require('./templates/index.jade');
+var insertcss = require('insert-css');
 
 function total(projects, filters) {
+
+  insertcss(require('./styles/index.styl'));
 
   var totals = {
     issues: 0,
@@ -709,7 +729,7 @@ function total(projects, filters) {
       totals.contributions += contribs[i].total;
     }
   }
-  console.log(totals)
+
   return totals;
 }
 
@@ -719,7 +739,10 @@ module.exports = function update(data, filters) {
 };
 
 
-},{"./templates/index.jade":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/app/node_modules/summarybar/templates/index.jade"}],"/Users/paolofragomeni/workroot/git/hij1nx/project-view/app/node_modules/summarybar/templates/index.jade":[function(require,module,exports){
+},{"./styles/index.styl":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/app/node_modules/summarybar/styles/index.styl","./templates/index.jade":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/app/node_modules/summarybar/templates/index.jade","insert-css":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/insert-css/index.js"}],"/Users/paolofragomeni/workroot/git/hij1nx/project-view/app/node_modules/summarybar/styles/index.styl":[function(require,module,exports){
+module.exports = ".summarybar{font-family:\"Carrois Gothic SC\",sans-serif;text-align:center;padding:0 20px;margin-bottom:20px;color:$444;}.summarybar .row{display:table;table-layout:fixed;width:100%;text-transform:uppercase;}.summarybar .row .col{width:15%;height:85px;text-align:left;display:table-cell;}.summarybar .row .col h2{margin:8px 0;font-size:2em}.summarybar .row .col p{font-size:12px;margin:0}"
+
+},{}],"/Users/paolofragomeni/workroot/git/hij1nx/project-view/app/node_modules/summarybar/templates/index.jade":[function(require,module,exports){
 var jade = require("jade/runtime");
 
 module.exports = function template(locals) {
@@ -28637,7 +28660,31 @@ module.exports.obj = through2(function (options, transform, flush) {
 }).call(this,require('_process'))
 },{"_process":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/browserify/node_modules/process/browser.js","readable-stream/transform":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/hyperquest/node_modules/through2/node_modules/readable-stream/transform.js","util":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/browserify/node_modules/util/util.js","xtend":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/xtend/immutable.js"}],"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/inherits/inherits_browser.js":[function(require,module,exports){
 module.exports=require("/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/browserify/node_modules/inherits/inherits_browser.js")
-},{"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/browserify/node_modules/inherits/inherits_browser.js":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/browserify/node_modules/inherits/inherits_browser.js"}],"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/jade/runtime.js":[function(require,module,exports){
+},{"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/browserify/node_modules/inherits/inherits_browser.js":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/browserify/node_modules/inherits/inherits_browser.js"}],"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/insert-css/index.js":[function(require,module,exports){
+var inserted = {};
+
+module.exports = function (css, options) {
+    if (inserted[css]) return;
+    inserted[css] = true;
+    
+    var elem = document.createElement('style');
+    elem.setAttribute('type', 'text/css');
+
+    if ('textContent' in elem) {
+      elem.textContent = css;
+    } else {
+      elem.styleSheet.cssText = css;
+    }
+    
+    var head = document.getElementsByTagName('head')[0];
+    if (options && options.prepend) {
+        head.insertBefore(elem, head.childNodes[0]);
+    } else {
+        head.appendChild(elem);
+    }
+};
+
+},{}],"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/jade/runtime.js":[function(require,module,exports){
 (function (global){
 !function(e){if("object"==typeof exports)module.exports=e();else if("function"==typeof define&&define.amd)define(e);else{var f;"undefined"!=typeof window?f=window:"undefined"!=typeof global?f=global:"undefined"!=typeof self&&(f=self),f.jade=e()}}(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(_dereq_,module,exports){
 'use strict';
