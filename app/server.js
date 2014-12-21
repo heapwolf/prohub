@@ -3,29 +3,43 @@ var engine = require('engine.io-stream');
 var split = require('split');
 var parse = require('through-parse');
 var github = require('gh');
+var ecstatic = require('ecstatic');
 
-module.exports = function(events, requests, cb) {
+var allow = /(.*)\.css|^\/fonts\/|img\/|^\/img\/|^\/js\/|(.*)\.js|favicon.ico/;
+
+module.exports = function(events, requests) {
+
+  var assets = ecstatic({
+    root: __dirname + '/assets',
+    cache: 0
+  });
 
   function routeRequest(req, res) {
-    if (!cb(req, res)) return;
 
-    for(i in requests)
-      if (requests[i].test(req, res))
-        requests[i].handler(req, res);
+    if (req.method == 'GET' || req.method == 'HEAD') {
+      if (allow.test(req.url)) {
+        return assets(req, res);
+      }
+    }
+
+    for (i in requests) {
+      if (requests[i].test(req, res))  {
+        return requests[i].handler(req, res);
+      }
+    }
+
+    res.statusCode = 404;
+    res.end('Not Found');
   }
 
   var server = http.createServer(function(req, res) {
-
-    var that = this;
-    var args = [].slice.call(arguments);
 
     github.requestAuth(req, res, function(err, token) {
       if (err) {
         req.statusCode = 501;
         return req.end('Internal Error');
       }
-      args.push(token);
-      routeRequest.apply(that, args);
+      routeRequest(req, res, token);
     });
   });
 
@@ -49,9 +63,11 @@ module.exports = function(events, requests, cb) {
         .pipe(split())
         .pipe(parse())
         .on('data', function(data) {
-          for(i in events)
-            if (events[i].test(stream, data, token))
+          for(i in events) {
+            if (events[i].test(stream, data, token)) {
               events[i].handler(stream, data, token);
+            }
+          }
         });
     });
   }
