@@ -1,4 +1,4 @@
-var config = require('config');
+var config = require('rc')('prohub');
 var server = require('./server');
 
 //
