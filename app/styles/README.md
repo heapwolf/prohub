@@ -1,3 +1,3 @@
 # SYNOPSIS
-Stylus files that are specific to this application are placed here. 
+Stylus files that are specific to this entire application are placed here. 
 
