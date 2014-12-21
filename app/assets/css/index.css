@@ -304,6 +304,68 @@ section.project .contributors .contributor a {
   dominant-baseline: middle;
   font-weight: 600;
 }
+ul.repos li {
+  position: relative;
+  cursor: pointer;
+  float: none;
+}
+ul.repos li .repo {
+  padding: 10px;
+  display: block;
+  text-decoration: none;
+  border-bottom: 1px solid #ccc;
+}
+ul.repos li .repo.selected b,
+ul.repos li .repo.selected i {
+  color: #2e7af9;
+}
+ul.repos li .repo:hover {
+  border-radius: 2px;
+  background: #ddd;
+}
+ul.repos li .repo p {
+  font-size: 12px;
+  margin: 0;
+}
+ul.repos li:hover i {
+  opacity: 1;
+  visibility: visible;
+}
+ul.repos li i {
+  transition: all 0.1s ease-in;
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+.summarybar {
+  font-family: "Carrois Gothic SC", sans-serif;
+  text-align: center;
+  padding: 0 20px;
+  margin-bottom: 20px;
+  color: $444;
+}
+.summarybar .row {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  text-transform: uppercase;
+}
+.summarybar .row .col {
+  width: 15%;
+  height: 85px;
+  text-align: left;
+  display: table-cell;
+}
+.summarybar .row .col h2 {
+  margin: 8px 0;
+  font-size: 2em;
+}
+.summarybar .row .col p {
+  font-size: 12px;
+  margin: 0;
+}
 label.custom-select {
   position: relative;
   font-family: "Carrois Gothic SC", sans-serif;
@@ -701,66 +763,4 @@ label.custom-select {
   visibility: visible;
   opacity: 1;
   background: #fafafa;
-}
-ul.repos li {
-  position: relative;
-  cursor: pointer;
-  float: none;
-}
-ul.repos li .repo {
-  padding: 10px;
-  display: block;
-  text-decoration: none;
-  border-bottom: 1px solid #ccc;
-}
-ul.repos li .repo.selected b,
-ul.repos li .repo.selected i {
-  color: #2e7af9;
-}
-ul.repos li .repo:hover {
-  border-radius: 2px;
-  background: #ddd;
-}
-ul.repos li .repo p {
-  font-size: 12px;
-  margin: 0;
-}
-ul.repos li:hover i {
-  opacity: 1;
-  visibility: visible;
-}
-ul.repos li i {
-  transition: all 0.1s ease-in;
-  visibility: hidden;
-  opacity: 0;
-  position: absolute;
-  top: 8px;
-  right: 8px;
-}
-.summarybar {
-  font-family: "Carrois Gothic SC", sans-serif;
-  text-align: center;
-  padding: 0 20px;
-  margin-bottom: 20px;
-  color: $444;
-}
-.summarybar .row {
-  display: table;
-  table-layout: fixed;
-  width: 100%;
-  text-transform: uppercase;
-}
-.summarybar .row .col {
-  width: 15%;
-  height: 85px;
-  text-align: left;
-  display: table-cell;
-}
-.summarybar .row .col h2 {
-  margin: 8px 0;
-  font-size: 2em;
-}
-.summarybar .row .col p {
-  font-size: 12px;
-  margin: 0;
 }

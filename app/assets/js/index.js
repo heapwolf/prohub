@@ -2,21 +2,14 @@
 var paramify = require('paramify');
 var domready = require('domready');
 var reconnect = require('reconnect-engine');
-
-
 var linestream = require('./linestream');
-var match = paramify(document.location.pathname);
 
-//
-// almost all client side code should wait for the dom.
-//
 domready(function() {
 
-  //
-  // on connect, execute the current routes related functions.
-  //
+  var match = paramify(document.location.pathname);
+
   var con = reconnect(function(stream) {
-    linestream(stream);
+    linestream(stream); // split the stream on new lines and emit json
 
     if (match('/home') || match('/'))
       return require('home/client')(stream);
@@ -451,7 +444,6 @@ exports.contributions = function(data, filters) {
 var paramify = require('paramify');
 var dom = require('dom-events');
 var classList = require('class-list');
-var http = require('http-browserify');
 var charts = require('./charts');
 var loader = require('./loader');
 var summarybar = require('summarybar');
@@ -628,7 +620,7 @@ module.exports = function(stream) {
 };
 
 
-},{"./charts":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/app/node_modules/project/charts.js","./loader":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/app/node_modules/project/loader.js","class-list":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/class-list/index.js","dom-events":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/dom-events/index.js","filtertable":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/app/node_modules/filtertable/index.js","http-browserify":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/http-browserify/index.js","paramify":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/paramify/index.js","summarybar":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/app/node_modules/summarybar/client.js"}],"/Users/paolofragomeni/workroot/git/hij1nx/project-view/app/node_modules/project/loader.js":[function(require,module,exports){
+},{"./charts":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/app/node_modules/project/charts.js","./loader":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/app/node_modules/project/loader.js","class-list":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/class-list/index.js","dom-events":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/dom-events/index.js","filtertable":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/app/node_modules/filtertable/index.js","paramify":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/paramify/index.js","summarybar":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/app/node_modules/summarybar/client.js"}],"/Users/paolofragomeni/workroot/git/hij1nx/project-view/app/node_modules/project/loader.js":[function(require,module,exports){
 var classList = require('class-list');
 
 module.exports = function(root) {
@@ -26643,15 +26635,7 @@ function ws(uri, protocols, opts) {
 
 if (WebSocket) ws.prototype = WebSocket.prototype;
 
-},{}],"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/http-browserify/index.js":[function(require,module,exports){
-module.exports=require("/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/browserify/node_modules/http-browserify/index.js")
-},{"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/browserify/node_modules/http-browserify/index.js":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/browserify/node_modules/http-browserify/index.js"}],"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/http-browserify/lib/request.js":[function(require,module,exports){
-module.exports=require("/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/browserify/node_modules/http-browserify/lib/request.js")
-},{"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/browserify/node_modules/http-browserify/lib/request.js":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/browserify/node_modules/http-browserify/lib/request.js"}],"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/http-browserify/lib/response.js":[function(require,module,exports){
-module.exports=require("/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/browserify/node_modules/http-browserify/lib/response.js")
-},{"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/browserify/node_modules/http-browserify/lib/response.js":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/browserify/node_modules/http-browserify/lib/response.js"}],"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/http-browserify/node_modules/Base64/base64.js":[function(require,module,exports){
-module.exports=require("/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/browserify/node_modules/http-browserify/node_modules/Base64/base64.js")
-},{"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/browserify/node_modules/http-browserify/node_modules/Base64/base64.js":"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/browserify/node_modules/http-browserify/node_modules/Base64/base64.js"}],"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/hyperquest/index.js":[function(require,module,exports){
+},{}],"/Users/paolofragomeni/workroot/git/hij1nx/project-view/node_modules/hyperquest/index.js":[function(require,module,exports){
 (function (process,Buffer){
 var url = require('url');
 var http = require('http');

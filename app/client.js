@@ -1,21 +1,14 @@
 var paramify = require('paramify');
 var domready = require('domready');
 var reconnect = require('reconnect-engine');
-
-
 var linestream = require('./linestream');
-var match = paramify(document.location.pathname);
 
-//
-// almost all client side code should wait for the dom.
-//
 domready(function() {
 
-  //
-  // on connect, execute the current routes related functions.
-  //
+  var match = paramify(document.location.pathname);
+
   var con = reconnect(function(stream) {
-    linestream(stream);
+    linestream(stream); // split the stream on new lines and emit json
 
     if (match('/home') || match('/'))
       return require('home/client')(stream);
