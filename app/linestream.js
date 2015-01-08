@@ -1,11 +1,9 @@
-var parse = require('through-parse');
 var split = require('split');
 
 module.exports = function Linestream(stream) {
 
   stream
-    .pipe(split())
-    .pipe(parse())
+    .pipe(split(JSON.parse))
     .on('data', function(d) {
       stream.emit('json', d);
     });
