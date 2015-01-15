@@ -19,7 +19,7 @@
     "domready": "^1.0.7",
     "ecstatic": "^0.5.5",
     "engine.io-stream": "^0.4.3",
-    "github": "^0.2.3",
+    "github-cache": "^0.3.0",
     "github-oauth": "^0.2.0",
     "hyperquest": "^1.0.1",
     "inherits": "^2.0.1",
