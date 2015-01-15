@@ -25,7 +25,7 @@
     "inherits": "^2.0.1",
     "insert-css": "^0.2.0",
     "jade": "^1.7.0",
-    "jadeify": "^3.1.0",
+    "jadeify": "^4.0.0",
     "level": "^0.18.0",
     "level-sublevel": "^6.3.17",
     "level-updater": "^0.1.0",
