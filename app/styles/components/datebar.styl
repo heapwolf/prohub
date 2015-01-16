@@ -4,7 +4,7 @@
   margin 40px auto
 
   .datebar
-    position reliatve
+    position relative
     height 20px
     width 100%
     background #ddd
@@ -19,14 +19,21 @@
       position absolute
       text-transform uppercase
       line-height 30px
-      top 20px
+      top -40px
       color white
-      right 10%
       min-width 100px
       height 30px
       border-radius 2px
       background #777
       text-align center
+      padding-left 10px
+      padding-right 10px
+
+    .tooltip-start
+      width 150px
+
+    .tooltip-end
+      width 150px
 
     .tooltip:after 
       top 30px;
@@ -42,3 +49,40 @@
       border-width 10px
       margin-left -10px
 
+    .tooltip-bottom
+      position absolute
+      text-transform uppercase
+      line-height 30px
+      top 30px
+      color white
+      min-width 100px
+      height 30px
+      border-radius 2px
+      background #777
+      text-align center
+      padding-left 10px
+      padding-right 10px
+
+    .tooltip-bottom:after
+    .tooltip-bottom:before 
+      bottom 100%
+      left 50%
+      border solid transparent
+      content " "
+      height 0
+      width 0
+      position absolute
+      pointer-events none
+
+    .tooltip-bottom:after
+      border-color rgba(51, 51, 51, 0)
+      border-bottom-color #777
+      border-width 10px
+      margin-left -10px
+
+    .tooltip-bottom:before
+      border-color rgba(51, 51, 51, 0)
+      border-bottom-color #777
+      border-width 10px
+      margin-left -10px
+    
