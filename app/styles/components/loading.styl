@@ -1,0 +1,36 @@
+.loading
+  font-family $font-Roboto
+  position absolute
+  top 0
+  left 0
+  right 0
+  bottom 0
+  background white
+  text-align center
+  padding-top 15%
+  margin auto
+  z-index 10000
+  width 100%
+  color #aaa
+  visibility hidden
+  opacity 0
+
+  &.open
+    visibility visible
+    opacity 1
+
+  .loader
+    height 20px
+    width 80%
+    position relative
+    background #aaa
+    margin 10% auto
+    text-align left
+
+    .progress
+      height 20px
+      width 0%
+      display inline-block
+      background $blue
+      transition: all .4s
+

@@ -1,0 +1,10 @@
+/node_modules
+*.sw*
+npm-debug.log
+app/assets/js/index.js
+app/assets/css/index.css
+/app/assets/css/index.css
+/app/assets/js/index.js
+/db
+.prohubrc
+/cachedb
