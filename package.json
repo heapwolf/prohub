@@ -24,7 +24,6 @@
     "engine.io-stream": "^0.4.3",
     "github-cache": "^0.3.0",
     "github-oauth": "^0.2.0",
-    "hyperquest": "^1.0.1",
     "inherits": "^2.0.1",
     "insert-css": "^0.2.0",
     "jade": "^1.7.0",
